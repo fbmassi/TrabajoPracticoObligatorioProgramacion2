@@ -6,7 +6,7 @@ public class TesteoPunto2 {
 
 	public static void main(String[] args) {
 
-		ConjuntoMamushkaTDA conjuntoMamushka = new ConjuntoMamushka();
+		ConjuntoMamushkaTDA conjuntoMamushka = new ConjuntoMamushka_Ejercicio2();
 		conjuntoMamushka.inicializar();
 		
 		System.out.println("AGREGAMOS ELEMENTOS AL CONJUNTO MAMUSHKA: ");
@@ -23,7 +23,7 @@ public class TesteoPunto2 {
 		conjuntoMamushka.guardar(7);
 		conjuntoMamushka.guardar(1);
 		conjuntoMamushka.guardar(5);
-		((ConjuntoMamushka) conjuntoMamushka).mostrarConjuntoMamushka();
+		((ConjuntoMamushka_Ejercicio2) conjuntoMamushka).mostrarConjuntoMamushka();
 		
 		
 		System.out.println("\n");
@@ -48,6 +48,6 @@ public class TesteoPunto2 {
 		System.out.println("El numero '6' se encuentra " + conjuntoMamushka.perteneceCant(6) + " veces en el conjunto.");
 		System.out.println("El numero '0' se encuentra " + conjuntoMamushka.perteneceCant(0) + " veces en el conjunto.");
 		System.out.println("El numero '5' se encuentra " + conjuntoMamushka.perteneceCant(5) + " veces en el conjunto.");
+		
 	}
-
 }

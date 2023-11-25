@@ -4,7 +4,15 @@ import interfaces.*;
 import interfaces.DiccionarioSimpleTDA;
 import imlementacionesAuxiliares.*;
 
-public class DiccionarioSimpleColaP implements DiccionarioSimpleTDA {
+public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
+	
+	/*
+	 Se busca implementar un DiccionarioSimpleTDA usando únicamente una
+	 ColaPrioridadTDA. Aclaración: se mantiene la interfaz de DiccionarioSimpleTDA;
+	 en la implementación en vez de utilizar un arreglo de enteros (estructura
+	 estática) o una lista enlazada (estructura dinámica), sólo puede usarse una 
+	 ColaPrioridadTDA.
+	 */
 	
 	private ColaPrioridadTDA elementos;
 
@@ -18,6 +26,7 @@ public class DiccionarioSimpleColaP implements DiccionarioSimpleTDA {
 	public void agregar(int clavePrioridad, int dato) {
 		
 		ConjuntoTDA conjuntoClaves = claves();
+		
 		if (!conjuntoClaves.pertenece(clavePrioridad)) {
 			elementos.acolarPrioridad(clavePrioridad, dato);
 		} else {

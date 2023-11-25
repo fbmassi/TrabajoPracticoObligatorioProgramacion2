@@ -2,7 +2,15 @@ package implementacionesEjercicios;
 
 import interfaces.ConjuntoMamushkaTDA;
 
-public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
+public class ConjuntoMamushka_Ejercicio2 implements ConjuntoMamushkaTDA {
+	
+	/*
+	 Se define un nuevo TDA denominado ConjuntoMamushkaTDA basado en
+	 ConjuntoTDA, con la particularidad de que se permite más de una
+	 acepción de cada elemento agregado. Tal cual como en ConjuntoTDA,
+	 no existe orden alguno. Su especificación se muestra en el anexo,
+	 leer detenidamente los comentarios de cada método.
+	 */
 	
 	private int indice;
 	private int[] conjuntoMamushka;
