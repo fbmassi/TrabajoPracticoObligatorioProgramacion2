@@ -18,7 +18,6 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 	
 	// En lugar de usar una arreglo, usamos una ColaPrioridadTDA. Podemos pensar a 
 	// la prioridad de la ColaPrioridadTDA como la clave del DiccionarioSimpleTDA. 
-	// 
 	
 	
 	@Override
