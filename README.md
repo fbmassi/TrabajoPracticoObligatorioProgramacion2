@@ -1,4 +1,4 @@
-# TrabajoPracticoObligatorioProgramacion2
+# Trabajo Practico Obligatorio de Programacion II
 ## Integrantes
 - Franco B. Massi
 - Tobías Medina
