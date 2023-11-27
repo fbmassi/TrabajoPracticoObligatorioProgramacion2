@@ -13,7 +13,7 @@ public class ColaSinRepeticiones_Ejercicio8 {
 	 en que aparecen todos los elementos en la original.
 	 */
 	
-	public static ColaTDA agoritmo(ColaTDA cola) {
+	public static ColaTDA algoritmo(ColaTDA cola) {
 		
 		
 		// ETAPA 1: inicializamos 2 colas auxiliares y una cola resultado para devolver.
@@ -41,6 +41,7 @@ public class ColaSinRepeticiones_Ejercicio8 {
 		}
 		
 		ConjuntoMamushkaTDA conjuntoMamushka = new ConjuntoMamushka_Ejercicio2();
+		conjuntoMamushka.inicializar();
 		
 		
 		// ETAPA 3: agregamos todos los elementos de la primera cola auxiliar al 

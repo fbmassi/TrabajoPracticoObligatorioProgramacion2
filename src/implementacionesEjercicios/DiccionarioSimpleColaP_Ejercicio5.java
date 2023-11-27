@@ -41,7 +41,7 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 			// Si ese fuese el caso, se elimina el par Clave-Valor con el método  
 			// eliminar(int clavePrioridad) y se agrega el que se pasó por  parametro. 
 			this.eliminar(clavePrioridad);
-			elementos.acolarPrioridad(clavePrioridad, dato);
+			elementos.acolarPrioridad(dato, clavePrioridad);
 		}
 	}
 
@@ -54,7 +54,7 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 		
 		// ETAPA 2: se vacía TODA la estructura de la clase en la estructura auxiliar.
 		while (!elementos.colaVacia()) {
-			elementosAux.acolarPrioridad(elementos.primero(), elementos.prioridad());
+			elementosAux.acolarPrioridad(elementos.prioridad(), elementos.primero());
 			elementos.desacolar();
 		}
 		
@@ -63,14 +63,14 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 		// el ciclo, se desacola el elemento sin acolarlo en la cola original y se continua
 		// recuperando el resto de la estructura. 
 		while (!elementosAux.colaVacia() && elementosAux.prioridad() != clavePrioridad) {
-			elementos.acolarPrioridad(elementosAux.primero(), elementosAux.prioridad());
+			elementos.acolarPrioridad(elementosAux.prioridad(), elementosAux.primero());
 			elementosAux.desacolar();
 		}
 		
 		if (!elementosAux.colaVacia() && elementosAux.prioridad() == clavePrioridad) {
 			elementosAux.desacolar();
 			while (!elementosAux.colaVacia()) {
-				elementos.acolarPrioridad(elementosAux.primero(), elementosAux.prioridad());
+				elementos.acolarPrioridad(elementosAux.prioridad(), elementosAux.primero());
 				elementosAux.desacolar();
 			}
 		}
@@ -87,7 +87,7 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 		
 		// ETAPA 2: se vacía TODA la estructura de la clase en la estructura auxiliar.
 		while (!elementos.colaVacia()) {
-			elementosAux.acolarPrioridad(elementos.primero(), elementos.prioridad());
+			elementosAux.acolarPrioridad(elementos.prioridad(), elementos.primero());
 			elementos.desacolar();
 		}
 		
@@ -102,7 +102,7 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 		// Hasta encontrar la coincidencia y cortar el ciclo, se continua recuperando el 
 		// resto de la estructura original.
 		while (elementosAux.prioridad() != clavePrioridad) {
-			elementos.acolarPrioridad(elementosAux.primero(), elementosAux.prioridad());
+			elementos.acolarPrioridad(elementosAux.prioridad(), elementosAux.primero());
 			elementosAux.desacolar();
 		}
 		
@@ -111,7 +111,7 @@ public class DiccionarioSimpleColaP_Ejercicio5 implements DiccionarioSimpleTDA {
 		
 		// Se recupera lo que reste de la estructura.
 		while (!elementosAux.colaVacia()) {
-			elementos.acolarPrioridad(elementosAux.primero(), elementosAux.prioridad());
+			elementos.acolarPrioridad(elementosAux.prioridad(), elementosAux.primero());
 			elementosAux.desacolar();
 		}
 		

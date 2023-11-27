@@ -26,6 +26,7 @@ public class DiccionarioMultipleACola_Ejercicio11 {
 		colAux.inicializar();
 		
 		ConjuntoMamushkaTDA conjuntoMamushka = new ConjuntoMamushka_Ejercicio2();
+		conjuntoMamushka.inicializar();
 		
 		
 		// ETAPA 2: almacenamos en una variable el conjunto de claves del diccionario.

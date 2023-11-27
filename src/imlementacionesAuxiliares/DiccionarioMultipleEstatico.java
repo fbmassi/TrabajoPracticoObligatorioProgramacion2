@@ -1,8 +1,9 @@
 package imlementacionesAuxiliares;
 
 import interfaces.ConjuntoTDA;
+import interfaces.DiccionarioMultipleTDA;
 
-public class DiccinarioMultipleEstatico {
+public class DiccionarioMultipleEstatico implements DiccionarioMultipleTDA {
 	
 
 	class Elemento{
