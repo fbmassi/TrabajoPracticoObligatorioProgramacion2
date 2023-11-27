@@ -1,8 +1,11 @@
 package algoritmosEjercicios;
 
-import imlementacionesAuxiliares.*;
-import interfaces.*;
-import implementacionesEjercicios.*;
+import imlementacionesAuxiliares.ColaEstatica;
+import imlementacionesAuxiliares.ConjuntoEstatico;
+import implementacionesEjercicios.ConjuntoMamushka_Ejercicio2;
+import interfaces.ColaTDA;
+import interfaces.ConjuntoMamushkaTDA;
+import interfaces.ConjuntoTDA;
 
 public class ColaSinRepeticiones_Ejercicio8 {
 	
@@ -16,54 +19,60 @@ public class ColaSinRepeticiones_Ejercicio8 {
 	public static ColaTDA algoritmo(ColaTDA cola) {
 		
 		
-		// ETAPA 1: inicializamos 2 colas auxiliares y una cola resultado para devolver.
+		// ETAPA 1: inicializamos 1 cola auxiliar y una cola resultado para devolver.
 		
-		ColaTDA colAux1 = new ColaEstatica();
-		colAux1.inicializar();
-		
-		ColaTDA colAux2 = new ColaEstatica();
-		colAux2.inicializar();
+		ColaTDA colAux = new ColaEstatica();
+		colAux.inicializar();
 		
 		ColaTDA colaResultado = new ColaEstatica();
 		colaResultado.inicializar();
 		
 		
-		// ETAPA 2: copiamos la cola original a las colas auxiliares e inicializamos  
-		// un ConjuntoMamushkaTDA, reciclado del punto 2. Este conjunto tiene la
-		// particularidad de admitir más de un ingreso del mismo elemento y, además,
-		// tiene un método con el que se puede contar la cantidad de veces que aparece
-		// en la estructura.
+		// ETAPA 2: copiamos la cola original a la cola auxiliar 
+		
 		
 		while (!cola.estaVacia()) {
-			colAux1.acolar(cola.primero());
-			colAux2.acolar(cola.primero());
+			colAux.acolar(cola.primero());
 			cola.desacolar();
 		}
 		
-		ConjuntoMamushkaTDA conjuntoMamushka = new ConjuntoMamushka_Ejercicio2();
-		conjuntoMamushka.inicializar();
+		// ETAPA 3: agregamos al conjunto resultado solo aquellos que no hayan 
+		// sido agregados antes. A su vez recuperamos la cola original. 
 		
-		
-		// ETAPA 3: agregamos todos los elementos de la primera cola auxiliar al 
-		// ConjuntoMamushkaTDA, a la vez que la desacolamos. Posteriormente, vaciamos
-		// vamos acolamos los elementos de la segunda cola auxiliar a la original para 
-		// recuperar la estructura original. A su vez, desacolamos la cola auxiliar y 
-		// acolamos los elementos en la cola resultado, si y solo si, los mismos NO se
-		// repiten en el ConjuntoMamushkaTDA.
-		
-		while (!colAux1.estaVacia()) {
-			conjuntoMamushka.guardar(colAux1.primero());
-			colAux1.desacolar();
-		}
-		
-		while (!colAux2.estaVacia()) {
-			cola.acolar(colAux2.primero());
-			if (conjuntoMamushka.perteneceCant(colAux2.primero()) == 1) {
-				colaResultado.acolar(colAux2.primero());
+		while (!colAux.estaVacia()) {
+			if (!seEncuentraYaAcolado(colaResultado, colAux.primero())) {
+				colaResultado.acolar(colAux.primero());
 			}
-			colAux2.desacolar();
+			cola.acolar(colAux.primero());
+			colAux.desacolar();
 		}
 		
+	
 		return colaResultado;
+	}
+	
+	
+	private static boolean seEncuentraYaAcolado(ColaTDA cola, int valor) {
+		
+		boolean devolver =  false;
+		
+		ColaTDA colAux = new ColaEstatica();
+		colAux.inicializar();
+		
+		while (!cola.estaVacia()) {
+			if (valor == cola.primero()) {
+				devolver = true;
+			}
+			colAux.acolar(cola.primero());
+			cola.desacolar();
+		}
+		
+		while (!colAux.estaVacia()) {
+			cola.acolar(colAux.primero());
+			colAux.desacolar();
+		}
+		
+		return devolver;
+		
 	}
 }
