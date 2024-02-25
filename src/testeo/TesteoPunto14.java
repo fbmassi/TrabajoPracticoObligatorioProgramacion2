@@ -1,6 +1,6 @@
 package testeo;
 import interfaces.*;
-import algoritmosEjercicios.ConjuntoVerticesPuente_Ejercicio14;
+import algoritmosEjercicios.Ejercicio14_ConjuntoVerticesPuente;
 import imlementacionesAuxiliares.*;
 
 public class TesteoPunto14 {
@@ -27,7 +27,7 @@ public class TesteoPunto14 {
         int verticeDestino = 3;
 
         // Ejecuta el algoritmo
-        verticesPuentes = ConjuntoVerticesPuente_Ejercicio14.algoritmo(grafo, verticeOrigen, verticeDestino);
+        verticesPuentes = Ejercicio14_ConjuntoVerticesPuente.algoritmo(grafo, verticeOrigen, verticeDestino);
 
         // Imprime el resultado
         System.out.println("Vértices puente entre " + verticeOrigen + " y " + verticeDestino + ": ");

@@ -18,7 +18,7 @@ public class TesteoPunto11 {
         diccionario.agregar(7, 50);
 
         // Ejecutar el algoritmo
-        ColaTDA resultado = DiccionarioMultipleACola_Ejercicio11.algoritmo(diccionario);
+        ColaTDA resultado = Ejercicio11_DiccionarioMultipleACola.algoritmo(diccionario);
 
         // Mostrar los resultados
         System.out.println("Valores únicos en el diccionario:");

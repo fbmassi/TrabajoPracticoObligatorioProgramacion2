@@ -1,9 +1,10 @@
 package testeo;
 import interfaces.*;
-import algoritmosEjercicios.SumaDeElementosImparesABB_Ejercicio12;
+import algoritmosEjercicios.Ejercicio12_SumaDeElementosImparesABB;
 import imlementacionesAuxiliares.*;
 
 public class TesteoPunto12 {
+	
 	public static void main(String[] args) {
         ABBTDA abb = new ABB();
         abb.inicializarArbol();
@@ -17,6 +18,7 @@ public class TesteoPunto12 {
         abb.agregarElem(12);
         abb.agregarElem(18);
 
-        System.out.println("La suma de elementos impares del ABB es: " + SumaDeElementosImparesABB_Ejercicio12.algoritmo(abb));
+        System.out.println("La suma de elementos impares del ABB es: " + Ejercicio12_SumaDeElementosImparesABB.algoritmo(abb));
     }
+	
 }
