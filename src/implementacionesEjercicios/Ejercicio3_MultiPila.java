@@ -21,7 +21,7 @@ public class Ejercicio3_MultiPila implements MultiPilaTDA{
 		
 		 while (!valores.estaVacia()){
 			pilAux.apilar(valores.tope());
-			pilAux.desapilar();
+			valores.desapilar();
 		 }
 
 		while (!pilAux.estaVacia()) {
@@ -47,14 +47,14 @@ public class Ejercicio3_MultiPila implements MultiPilaTDA{
 
 		while (!valores.estaVacia()){
 			pilAux.apilar(valores.tope());
-			pilAux.desapilar();
+			valores.desapilar();
 			contadorElementos++;
 		}
 
 		elementosPila = new int[contadorElementos];
 
 		for (int posicion = 0; posicion < contadorElementos; posicion++) {
-			int valor = valores.tope();
+			int valor = pilAux.tope();
 			valores.apilar(valor);
 			elementosPila[posicion] = valor;
 			pilAux.desapilar();
@@ -62,27 +62,18 @@ public class Ejercicio3_MultiPila implements MultiPilaTDA{
 		
 		int coincidenciasTotales = contadorElementos;
 		int coincide = 0;
+		PilaTDA pilaAComparar = this.tope(contadorElementos);
 
 		for (int posicion = contadorElementos - 1; posicion >= 0 ;posicion--) {
-			int valor = valores.tope();
-			if (elementosPila[posicion] == valor){
+			if (pilaAComparar.tope() == elementosPila[posicion]) {
 				coincide++;
 			}
-			pilAux.apilar(valor);
-			valores.desapilar();
+			pilaAComparar.desapilar();
 		}
 
 		if (coincidenciasTotales == coincide) {
-			while (!pilAux.estaVacia()) {
-				int valor = pilAux.tope();
+			for (int iteraciones = 0; iteraciones < coincidenciasTotales; iteraciones++) {
 				primerNodo = primerNodo.siguienteNodo;
-				valores.apilar(valor);
-				pilAux.desapilar();
-			}
-		} else {
-			while (!pilAux.estaVacia()) {
-				valores.apilar(pilAux.tope());
-				pilAux.desapilar();
 			}
 		}
 	}
@@ -96,14 +87,14 @@ public class Ejercicio3_MultiPila implements MultiPilaTDA{
 		PilaTDA pilAux = new PilaDinamica();
 		pilAux.inicializar();
 
-		for (int iteraciones = 0; iteraciones < cantidad || primerNodo.siguienteNodo == null; iteraciones++) {
+		for (int iteraciones = 0; primerNodo != null && iteraciones < cantidad; iteraciones++) {
 			pilAux.apilar(primerNodo.elemento);
 			primerNodo = primerNodo.siguienteNodo;
 		}
 
 		while (!pilAux.estaVacia()) {
 			pilaADevolver.apilar(pilAux.tope());
-			pilaADevolver.desapilar();
+			pilAux.desapilar();
 		}
 
 		pilAux = pilaADevolver;
